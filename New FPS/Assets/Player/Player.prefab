@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18eddaf119dfd28479204367624e6963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
   playerBody: {fileID: 5677063918527578416}
+  mouseSensitivity: 100
 --- !u!1 &5677063918527578429
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,14 +180,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5677063918527578417}
-  speed: 12
-  gravity: -19.62
-  jumpHeight: 3
   groundCheck: {fileID: 5677063919486951911}
-  groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  speed: 12
+  jumpHeight: 3
+  gravityMultiplier: 2
+  groundDistance: 0.4
 --- !u!114 &5677063918527578428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,9 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04db6a184019213418961b6a4e6f1423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
   max_health: 1000
   current_health: 1000
-  healthbar: {fileID: 0}
 --- !u!1 &5677063918593282006
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,12 +263,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 8145264206825008346, guid: e98ef65c7f2060946849868daa036d76, type: 3}
-  speed: 3500
   emitter: {fileID: 5677063918593282006}
+  ammo_counter: {fileID: 0}
+  speed: 7000
   max_ammo: 8
   cur_ammo: 8
   reload_time: 1
-  ammo_counter: {fileID: 0}
 --- !u!1 &5677063919486951904
 GameObject:
   m_ObjectHideFlags: 0
