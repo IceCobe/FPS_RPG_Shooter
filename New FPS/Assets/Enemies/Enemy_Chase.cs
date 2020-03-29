@@ -2,16 +2,17 @@
  
  public class Enemy_Chase: MonoBehaviour
  {
-     GameObject targ;
-     public bool isStunned = false;
-     public float speed = 5f;
-     public Rigidbody rb;
-     // Update is called once per frame
-     void Start() {
+    public Rigidbody rb;
+    GameObject targ;
+    
+    public bool isStunned = false;
+    public float speed = 5f;
+
+    void Start() {
         targ = GameObject.FindGameObjectWithTag("Player");
-     }
-     void Update()
-     {
+    }
+    void Update()
+    {
         if (isStunned) {
             rb.isKinematic = false;
             rb.detectCollisions = true;

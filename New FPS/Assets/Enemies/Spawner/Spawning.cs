@@ -7,15 +7,10 @@ public class Spawning : MonoBehaviour
     public GameObject enemy;
     public Round_Script round_Script;
     public int round = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
+        // Spawn an enemy
         if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             round_Script.changetext("Round " + round);
             for (int i = 0; i < round; i++) {

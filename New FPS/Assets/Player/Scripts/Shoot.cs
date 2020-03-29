@@ -14,20 +14,25 @@ public class Shoot : MonoBehaviour
     public float cur_ammo = 8f;
     public float reload_time = 1f;
 
-    bool isReloading = false;    
+    bool isReloading = false;
+    bool isShooting = false;
+    float recoveryspeed = 10f;
 
     void Update()
     {   
         // tried to implement reloading animation
         if (isReloading) {
             emitter.transform.localPosition = Vector3.Lerp(emitter.transform.localPosition,new Vector3(1.426f, -1.44f, 2.554f), 10f*Time.deltaTime);
+        } else if(isShooting) {
+            emitter.transform.localPosition = Vector3.Lerp(emitter.transform.localPosition,new Vector3(1.426f, -0.44f, 2.4f), 30f*Time.deltaTime);
         } else {
-            emitter.transform.localPosition = Vector3.Lerp(emitter.transform.localPosition,new Vector3(1.426f, -0.44f, 2.554f), 10f*Time.deltaTime);
+            emitter.transform.localPosition = Vector3.Lerp(emitter.transform.localPosition,new Vector3(1.426f, -0.44f, 2.554f), recoveryspeed*Time.deltaTime);
         }
         
         // Logic for when I can shoot
         if (cur_ammo <= max_ammo && isReloading == false && (Input.GetKeyDown(KeyCode.R) || cur_ammo <= 0)) {
             isReloading = true;
+            recoveryspeed = 10f;
             Invoke("reload_now", reload_time);
         } else if (isReloading == false) {
             shoot();
@@ -44,12 +49,19 @@ public class Shoot : MonoBehaviour
     }
 
     // Shooting implementation
-    void shoot(){
+    void shoot() {
         if (Input.GetMouseButtonDown(0)) {
+            isShooting = true;
+            recoveryspeed = 60f;
+            Invoke("doneShooting",.25f);
             GameObject instBullet = Instantiate(bullet, transform.position , transform.rotation) as GameObject;
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
             instBulletRigidbody.AddForce(emitter.transform.forward * speed);
             cur_ammo--;
         }
+    }
+
+    void doneShooting() {
+        isShooting = false;
     }
 }
