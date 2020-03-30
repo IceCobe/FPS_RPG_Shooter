@@ -5,9 +5,14 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
 
+    public Camera fpsCam;
+    Transform Target;
     public GameObject bullet;
     public GameObject emitter;
     public Ammo_Count ammo_counter;
+
+    private Quaternion _lookRotation;
+    private Vector3 _direction;
 
     public float speed = 100f;
     public float max_ammo = 8f;
@@ -53,12 +58,20 @@ public class Shoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             isShooting = true;
             recoveryspeed = 60f;
-            Invoke("doneShooting",.25f);
-            GameObject instBullet = Instantiate(bullet, transform.position , transform.rotation) as GameObject;
+            
+            RaycastHit hit;
+
+            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit)) {
+                Vector3 Target = hit.point;
+            }
+
+            // create the rotation we need to be in to look at the target
+            GameObject instBullet = Instantiate(bullet, emitter.transform.position , emitter.transform.rotation);
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(emitter.transform.forward * speed);
+            instBulletRigidbody.AddForce((hit.point - emitter.transform.position) * speed);
             cur_ammo--;
         }
+            Invoke("doneShooting",.25f);
     }
 
     void doneShooting() {
