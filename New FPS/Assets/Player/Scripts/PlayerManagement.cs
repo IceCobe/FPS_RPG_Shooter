@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
         }
 
         // If I fall off the map reload the room
-        if (transform.position.y <= -100) {
+        if (transform.position.y <= -25) {
             SceneManager.LoadScene("First_Room");
         } 
     }

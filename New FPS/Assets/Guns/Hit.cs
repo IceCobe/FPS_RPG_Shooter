@@ -16,7 +16,7 @@ public class Hit : MonoBehaviour
             Target enemy = other.GetComponent<Target>();
             Enemy_Chase en = other.GetComponent<Enemy_Chase>();
             if (enemy != null) {
-                // en.isStunned = true;
+                en.isStunned = true;
                 enemy.TakeDamage(damage);
                 Rigidbody enemybody = other.gameObject.GetComponent<Rigidbody>();
                 enemybody.AddForce(this.transform.forward * knockback);
