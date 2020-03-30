@@ -56,15 +56,16 @@ public class Shoot : MonoBehaviour
             recoveryspeed = 60f;
             
             RaycastHit hit;
+            Vector3 direction = emitter.transform.forward;
 
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit)) {
                 Vector3 Target = hit.point;
+                direction = (hit.point - emitter.transform.position).normalized;
             }
 
-            // create the rotation we need to be in to look at the target
             GameObject instBullet = Instantiate(bullet, emitter.transform.position , emitter.transform.rotation);
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            Vector3 direction = (hit.point - emitter.transform.position).normalized;
+            
             instBulletRigidbody.AddForce(direction * speed);
             cur_ammo--;
         }
