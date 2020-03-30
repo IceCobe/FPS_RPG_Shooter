@@ -68,7 +68,8 @@ public class Shoot : MonoBehaviour
             // create the rotation we need to be in to look at the target
             GameObject instBullet = Instantiate(bullet, emitter.transform.position , emitter.transform.rotation);
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce((hit.point - emitter.transform.position) * speed);
+            Vector3 direction = (hit.point - emitter.transform.position).normalized;
+            instBulletRigidbody.AddForce(direction * speed);
             cur_ammo--;
         }
             Invoke("doneShooting",.25f);
