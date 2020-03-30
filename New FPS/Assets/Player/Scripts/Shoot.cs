@@ -6,13 +6,9 @@ public class Shoot : MonoBehaviour
 {
 
     public Camera fpsCam;
-    Transform Target;
     public GameObject bullet;
     public GameObject emitter;
     public Ammo_Count ammo_counter;
-
-    private Quaternion _lookRotation;
-    private Vector3 _direction;
 
     public float speed = 100f;
     public float max_ammo = 8f;
