@@ -26,7 +26,7 @@
             Vector3 flat_dir = new Vector3(flatten.x,transform.position.y,flatten.z);
             
             // Variable Calculation
-            lookRotation = Quaternion.LookRotation(flat_dir);
+            lookRotation = Quaternion.LookRotation(direction);
             Quaternion newRot = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 2.5f );
             
             // Rotation and position movemnet
