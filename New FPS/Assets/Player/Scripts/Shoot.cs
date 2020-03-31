@@ -63,7 +63,7 @@ public class Shoot : MonoBehaviour
                 direction = (hit.point - emitter.transform.position).normalized;
             }
 
-            GameObject instBullet = Instantiate(bullet, emitter.transform.position , emitter.transform.rotation);
+            GameObject instBullet = Instantiate(bullet, emitter.transform.position, emitter.transform.rotation);
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
             
             instBulletRigidbody.AddForce(direction * speed);
