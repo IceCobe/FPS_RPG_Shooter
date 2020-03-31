@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-
+    public Animator animator;
     public Camera fpsCam;
     public GameObject bullet;
     public GameObject emitter;
@@ -23,17 +23,15 @@ public class Shoot : MonoBehaviour
     {   
         // tried to implement reloading animation
         if (isReloading) {
-            emitter.transform.localPosition = Vector3.Lerp(emitter.transform.localPosition,new Vector3(1.426f, -1.44f, 2.554f), 10f*Time.deltaTime);
+            animator.SetBool("Anim_isReloading", true);
         } else if(isShooting) {
-            emitter.transform.localPosition = Vector3.Lerp(emitter.transform.localPosition,new Vector3(1.426f, -0.44f, 2.4f), 30f*Time.deltaTime);
-        } else {
-            emitter.transform.localPosition = Vector3.Lerp(emitter.transform.localPosition,new Vector3(1.426f, -0.44f, 2.554f), recoveryspeed*Time.deltaTime);
+            animator.SetBool("Anim_isShooting", true);
         }
         
         // Logic for when I can shoot
         if (cur_ammo <= max_ammo && isReloading == false && (Input.GetKeyDown(KeyCode.R) || cur_ammo <= 0)) {
-            isReloading = true;
             recoveryspeed = 10f;
+            animator.SetBool("Anim_isReloading", true);
             Invoke("reload_now", reload_time);
         } else if (isReloading == false) {
             shoot();
@@ -47,11 +45,15 @@ public class Shoot : MonoBehaviour
     void reload_now() {
         cur_ammo = max_ammo;
         isReloading = false;
+        animator.SetBool("Anim_isReloading", false);
     }
 
     // Shooting implementation
     void shoot() {
         if (Input.GetMouseButtonDown(0)) {
+
+            animator.SetBool("Anim_isShooting", true);
+            
             isShooting = true;
             recoveryspeed = 60f;
             
@@ -74,5 +76,6 @@ public class Shoot : MonoBehaviour
 
     void doneShooting() {
         isShooting = false;
+        animator.SetBool("Anim_isShooting", false);
     }
 }
