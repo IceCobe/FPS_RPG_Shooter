@@ -20,16 +20,17 @@
         if (isStunned) {
             Invoke("RemoveStun", .25f);
         } else {
-            // Variable Gathering
-            direction = (targ.transform.position - transform.position).normalized;
-            lookRotation = Quaternion.LookRotation(direction);
-            
-            // rigidbody moving
+            // Flatten the Vector3
             flatten = transform.position + (direction * speed * Time.deltaTime);
-            rb.MovePosition(new Vector3(flatten.x,transform.position.y,flatten.z));
+            direction = (targ.transform.position - transform.position).normalized;
+            Vector3 flat_dir = new Vector3(flatten.x,transform.position.y,flatten.z);
             
-            //rigidbody rotation
+            // Variable Calculation
+            lookRotation = Quaternion.LookRotation(flat_dir);
             Quaternion newRot = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 2.5f );
+            
+            // Rotation and position movemnet
+            rb.MovePosition(flat_dir);
             rb.MoveRotation(newRot);
             
         }
