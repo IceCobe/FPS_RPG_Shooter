@@ -17,24 +17,14 @@ public class Shoot : MonoBehaviour
 
     bool isReloading = false;
     bool isShooting = false;
-    float recoveryspeed = 10f;
 
     void Update()
-    {   
-        // tried to implement reloading animation
-        if (isReloading) {
-            animator.SetBool("Anim_isReloading", true);
-        } else if(isShooting) {
-            animator.SetBool("Anim_isShooting", true);
-        }
-        
+    {          
         // Logic for when I can shoot
         if (cur_ammo <= max_ammo && isReloading == false && (Input.GetKeyDown(KeyCode.R) || cur_ammo <= 0)) {
-            recoveryspeed = 10f;
-            animator.SetBool("Anim_isReloading", true);
-            Invoke("reload_now", reload_time);
+            StartCoroutine(reload_now());
         } else if (isReloading == false) {
-            shoot();
+            StartCoroutine(shoot());
         }
 
         // Update the ammo
@@ -42,20 +32,21 @@ public class Shoot : MonoBehaviour
     }
 
     // Reloading implementation
-    void reload_now() {
+    IEnumerator reload_now() {
+        isReloading = true;
+        animator.SetBool("Anim_isReloading", true);
+
+        yield return new WaitForSeconds(reload_time);
+
         cur_ammo = max_ammo;
         isReloading = false;
         animator.SetBool("Anim_isReloading", false);
     }
 
     // Shooting implementation
-    void shoot() {
+    IEnumerator shoot() {
         if (Input.GetMouseButtonDown(0)) {
-
             animator.SetBool("Anim_isShooting", true);
-            
-            isShooting = true;
-            recoveryspeed = 60f;
             
             RaycastHit hit;
             Vector3 direction = emitter.transform.forward;
@@ -70,12 +61,10 @@ public class Shoot : MonoBehaviour
             
             instBulletRigidbody.AddForce(direction * speed);
             cur_ammo--;
-        }
-            Invoke("doneShooting",.25f);
-    }
 
-    void doneShooting() {
-        isShooting = false;
-        animator.SetBool("Anim_isShooting", false);
+            yield return new WaitForSeconds(0.00f);
+
+            animator.SetBool("Anim_isShooting", false);
+        }
     }
 }
