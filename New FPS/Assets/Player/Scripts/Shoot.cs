@@ -14,6 +14,7 @@ public class Shoot : MonoBehaviour
     public float max_ammo = 8f;
     public float cur_ammo = 8f;
     public float reload_time = 1f;
+    public float fire_rate = .1f;
 
     bool isReloading = false;
     bool isShooting = false;
@@ -23,7 +24,7 @@ public class Shoot : MonoBehaviour
         // Logic for when I can shoot
         if (cur_ammo <= max_ammo && isReloading == false && (Input.GetKeyDown(KeyCode.R) || cur_ammo <= 0)) {
             StartCoroutine(reload_now());
-        } else if (isReloading == false) {
+        } else if (isReloading == false && isShooting == false) {
             StartCoroutine(shoot());
         }
 
@@ -45,7 +46,8 @@ public class Shoot : MonoBehaviour
 
     // Shooting implementation
     IEnumerator shoot() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButton(0)) {
+            isShooting = true;
             animator.SetBool("Anim_isShooting", true);
             
             RaycastHit hit;
@@ -58,12 +60,13 @@ public class Shoot : MonoBehaviour
 
             GameObject instBullet = Instantiate(bullet, emitter.transform.position, emitter.transform.rotation);
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            
+
             instBulletRigidbody.AddForce(direction * speed);
             cur_ammo--;
 
-            yield return new WaitForSeconds(0.00f);
+            yield return new WaitForSeconds(fire_rate);
 
+            isShooting = false;
             animator.SetBool("Anim_isShooting", false);
         }
     }
