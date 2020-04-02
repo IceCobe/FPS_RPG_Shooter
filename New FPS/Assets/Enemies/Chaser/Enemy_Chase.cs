@@ -3,6 +3,7 @@
  public class Enemy_Chase: MonoBehaviour
  {
     public Rigidbody rb;
+    public Target self;
     private Vector3 direction;
     private Vector3 flatten;
     private Quaternion lookRotation;
@@ -17,9 +18,7 @@
     }
     void FixedUpdate()
     {
-        if (isStunned) {
-            Invoke("RemoveStun", .25f);
-        } else {
+        if (!self.isDead) {
             // Flatten the Vector3
             flatten = transform.position + (direction * speed * Time.deltaTime);
             direction = (targ.transform.position - transform.position).normalized;
@@ -35,8 +34,4 @@
             
         }
      }
-
-    void RemoveStun() {
-        isStunned = false;
-    }
  }

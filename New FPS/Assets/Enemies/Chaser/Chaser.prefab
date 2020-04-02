@@ -128,6 +128,7 @@ MonoBehaviour:
   animator: {fileID: 3417422724624449964}
   health: 40
   damage: 15
+  isDead: 0
 --- !u!114 &-1934919348639017187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3540515216572618953}
+  self: {fileID: 4687505379661368645}
   isStunned: 0
   speed: 7.5
 --- !u!95 &3417422724624449964

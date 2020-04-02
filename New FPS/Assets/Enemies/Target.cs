@@ -1,20 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Target : MonoBehaviour
 {
     public Animator animator;
     public float health = 50f;
     public float damage = 30f;
+    public bool isDead = false;
+
     public void TakeDamage(float amount) {
         health -= amount;
         if (health <= 0f) {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    void Die() {
+    IEnumerator Die() {
+        isDead = true;
         animator.SetBool("IsDead", true);
-        Invoke("Actual_Death", .5f);
+
+        yield return new WaitForSeconds(.5f);
+
+        Destroy(gameObject);
     }
     void Start() {
         animator = GetComponent<Animator>();
@@ -22,11 +29,7 @@ public class Target : MonoBehaviour
     void Update()
     {
         if (transform.position.y <= -10) {
-            Die();
+            StartCoroutine(Die());
         }
-    }
-
-    void Actual_Death() {
-        Destroy(gameObject);
     }
 }
