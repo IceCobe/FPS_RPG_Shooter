@@ -2633,12 +2633,12 @@ PrefabInstance:
     - target: {fileID: 2328435481975336956, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: max_ammo
-      value: 16
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2328435481975336956, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: cur_ammo
-      value: 16
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2328435481975336956, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
@@ -2648,7 +2648,7 @@ PrefabInstance:
     - target: {fileID: 2328435481975336956, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: fire_rate
-      value: 0.125
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fdca8eccee2944f95d87c58236e2c4, type: 3}

@@ -18,7 +18,6 @@ public class Shoot : MonoBehaviour
 
     bool isReloading = false;
     bool isShooting = false;
-
     void Update()
     {          
         // Logic for when I can shoot
@@ -47,8 +46,9 @@ public class Shoot : MonoBehaviour
     // Shooting implementation
     IEnumerator shoot() {
         if (Input.GetMouseButton(0)) {
+            animator.Play("shoot");
             isShooting = true;
-            animator.SetBool("Anim_isShooting", true);
+            //animator.SetBool("Anim_isShooting", true);
             
             RaycastHit hit;
             Vector3 direction = emitter.transform.forward;
@@ -67,7 +67,7 @@ public class Shoot : MonoBehaviour
             yield return new WaitForSeconds(fire_rate);
 
             isShooting = false;
-            animator.SetBool("Anim_isShooting", false);
+            //animator.SetBool("Anim_isShooting", false);
         }
     }
 }
