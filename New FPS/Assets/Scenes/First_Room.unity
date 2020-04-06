@@ -2500,6 +2500,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2328435480328769808, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328435480328769808, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: m_SlopeLimit
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 2328435480328769809, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2565,6 +2575,11 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1726120301}
+    - target: {fileID: 2328435480328769823, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2328435481975336955, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: m_LocalPosition.y

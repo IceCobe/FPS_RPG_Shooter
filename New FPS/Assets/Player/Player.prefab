@@ -141,7 +141,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3
-  m_Radius: 2
+  m_Radius: 1
   m_SlopeLimit: 70
   m_StepOffset: 0.5
   m_SkinWidth: 0.08
@@ -157,7 +157,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
+  m_Radius: 1
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3049985b0794bf0429b8de11c8912c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   fpsCam: {fileID: 2328435481776680493}
   bullet: {fileID: 8145264206825008346, guid: e98ef65c7f2060946849868daa036d76, type: 3}
   emitter: {fileID: 2328435481975336954}
@@ -412,6 +413,7 @@ MonoBehaviour:
   max_ammo: 8
   cur_ammo: 8
   reload_time: 1
+  fire_rate: 0.1
 --- !u!95 &6197891129846088379
 Animator:
   serializedVersion: 3
