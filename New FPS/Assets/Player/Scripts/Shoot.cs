@@ -15,6 +15,7 @@ public class Shoot : MonoBehaviour
     public float cur_ammo = 8f;
     public float reload_time = 1f;
     public float fire_rate = .1f;
+    public float spread = .05f;
 
     bool isReloading = false;
     bool isShooting = false;
@@ -48,7 +49,6 @@ public class Shoot : MonoBehaviour
         if (Input.GetMouseButton(0)) {
             animator.Play("shoot");
             isShooting = true;
-            //animator.SetBool("Anim_isShooting", true);
             
             RaycastHit hit;
             Vector3 direction = emitter.transform.forward;
@@ -56,6 +56,8 @@ public class Shoot : MonoBehaviour
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit)) {
                 Vector3 Target = hit.point;
                 direction = (hit.point - emitter.transform.position).normalized;
+                direction.x += Random.Range(-spread, spread);
+                direction.y += Random.Range(-spread, spread);
             }
 
             GameObject instBullet = Instantiate(bullet, emitter.transform.position, Quaternion.LookRotation(direction));
@@ -67,7 +69,6 @@ public class Shoot : MonoBehaviour
             yield return new WaitForSeconds(fire_rate);
 
             isShooting = false;
-            //animator.SetBool("Anim_isShooting", false);
         }
     }
 }

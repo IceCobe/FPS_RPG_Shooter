@@ -2575,10 +2575,30 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1726120301}
+    - target: {fileID: 2328435480328769821, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: max_health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328435480328769821, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: current_health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328435480328769822, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: groundDistance
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2328435480328769823, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: m_Radius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328435481102058432, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2328435481975336955, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
@@ -2664,6 +2684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fire_rate
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328435481975336956, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: spread
+      value: 0.025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fdca8eccee2944f95d87c58236e2c4, type: 3}
