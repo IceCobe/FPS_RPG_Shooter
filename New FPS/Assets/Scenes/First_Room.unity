@@ -2704,7 +2704,7 @@ PrefabInstance:
     - target: {fileID: 7888366555128774264, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: knockback
-      value: 20000
+      value: 2000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fdca8eccee2944f95d87c58236e2c4, type: 3}
