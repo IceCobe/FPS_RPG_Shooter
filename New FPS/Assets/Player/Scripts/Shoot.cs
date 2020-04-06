@@ -19,13 +19,17 @@ public class Shoot : MonoBehaviour
 
     bool isReloading = false;
     bool isShooting = false;
+    bool isMelee = false;
     void Update()
     {          
         // Logic for when I can shoot
         if (cur_ammo <= max_ammo && isReloading == false && (Input.GetKeyDown(KeyCode.R) || cur_ammo <= 0)) {
             StartCoroutine(reload_now());
-        } else if (isReloading == false && isShooting == false) {
+        } else if (!isReloading && !isMelee && !isShooting) {
             StartCoroutine(shoot());
+            StartCoroutine(melee());
+        } else if (!isReloading && !isMelee ) {
+            StartCoroutine(melee());
         }
 
         // Update the ammo
@@ -42,6 +46,19 @@ public class Shoot : MonoBehaviour
         cur_ammo = max_ammo;
         isReloading = false;
         animator.SetBool("Anim_isReloading", false);
+    }
+
+    // Melee implementation
+    IEnumerator melee() {
+        if (Input.GetKeyDown(KeyCode.V)) {
+            isMelee = true;
+            animator.Play("melee");
+
+            yield return new WaitForSeconds(.66f);
+
+            isMelee = false;
+        }
+        
     }
 
     // Shooting implementation
