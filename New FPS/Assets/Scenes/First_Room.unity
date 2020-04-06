@@ -2494,6 +2494,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3421545895542683874, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: knockback
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 3421545895892305428, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: ammo_counter

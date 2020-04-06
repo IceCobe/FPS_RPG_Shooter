@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3421545896016435074}
   damage: 20
-  knockback: 8000
+  knockback: 2000
 --- !u!1 &3421545895661452692
 GameObject:
   m_ObjectHideFlags: 0
