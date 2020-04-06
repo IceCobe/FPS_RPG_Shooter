@@ -9,6 +9,7 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     public GameObject emitter;
     public Ammo_Count ammo_counter;
+    public GameObject meleeobject;
 
     public float speed = 100f;
     public float max_ammo = 8f;
@@ -54,7 +55,15 @@ public class Shoot : MonoBehaviour
             isMelee = true;
             animator.Play("melee");
 
-            yield return new WaitForSeconds(.66f);
+            yield return new WaitForSeconds(.25f);
+
+            meleeobject.SetActive(true);
+
+            yield return new WaitForSeconds(1f/60f);
+
+            meleeobject.SetActive(false);
+
+            yield return new WaitForSeconds(.66f-.25f-1f/60f);
 
             isMelee = false;
         }

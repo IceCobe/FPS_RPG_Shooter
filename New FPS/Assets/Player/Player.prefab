@@ -389,6 +389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2328435480712763481}
+  - {fileID: 4820559667337971509}
   m_Father: {fileID: 2328435481776680492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -2.9280002, z: 0}
@@ -409,11 +410,13 @@ MonoBehaviour:
   bullet: {fileID: 8145264206825008346, guid: e98ef65c7f2060946849868daa036d76, type: 3}
   emitter: {fileID: 2328435481975336954}
   ammo_counter: {fileID: 0}
+  meleeobject: {fileID: 0}
   speed: 2000
   max_ammo: 8
   cur_ammo: 8
   reload_time: 1
   fire_rate: 0.1
+  spread: 0.05
 --- !u!95 &6197891129846088379
 Animator:
   serializedVersion: 3
@@ -619,3 +622,62 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8875935519192371338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4820559667337971509}
+  - component: {fileID: 1049008245076115841}
+  - component: {fileID: 7888366555128774264}
+  m_Layer: 0
+  m_Name: Melee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4820559667337971509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875935519192371338}
+  m_LocalRotation: {x: -0, y: 0.025552826, z: -0, w: 0.9996735}
+  m_LocalPosition: {x: -0.20209533, y: -0.55999994, z: 1.3120364}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2328435481975336955}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1049008245076115841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875935519192371338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7888366555128774264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875935519192371338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a1576abe4879c4e8426b58cc60ad21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  knockback: 8000

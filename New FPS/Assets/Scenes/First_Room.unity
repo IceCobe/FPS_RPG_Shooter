@@ -1222,6 +1222,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be90ac8e40277a948a1a5864f7b99c00, type: 3}
+--- !u!1 &924882946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8875935519192371338, guid: 88fdca8eccee2944f95d87c58236e2c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2328435481354904872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &930757361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2689,6 +2695,16 @@ PrefabInstance:
         type: 3}
       propertyPath: spread
       value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328435481975336956, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: meleeobject
+      value: 
+      objectReference: {fileID: 924882946}
+    - target: {fileID: 7888366555128774264, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: knockback
+      value: 20000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fdca8eccee2944f95d87c58236e2c4, type: 3}
