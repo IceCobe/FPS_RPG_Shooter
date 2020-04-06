@@ -55,7 +55,7 @@ public class Shoot : MonoBehaviour
             isMelee = true;
             animator.Play("melee");
 
-            yield return new WaitForSeconds(.25f);
+            yield return new WaitForSeconds(25f/60f);
 
             meleeobject.SetActive(true);
 
@@ -63,7 +63,7 @@ public class Shoot : MonoBehaviour
 
             meleeobject.SetActive(false);
 
-            yield return new WaitForSeconds(.66f-.25f-1f/60f);
+            yield return new WaitForSeconds(.66f-25f/60f-1f/60f);
 
             isMelee = false;
         }

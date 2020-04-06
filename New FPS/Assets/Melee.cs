@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Melee : MonoBehaviour
 {
+    public GameObject player;
     public float damage = 20f;
     public float knockback = 8000f;
     private void OnTriggerEnter(Collider other) {
@@ -14,7 +15,8 @@ public class Melee : MonoBehaviour
                 en.isStunned = true;
                 enemy.TakeDamage(damage);
                 Rigidbody enemybody = other.gameObject.GetComponent<Rigidbody>();
-                enemybody.AddForce(this.transform.forward * knockback);
+                enemybody.AddForce(player.transform.up * knockback*.25f);
+                enemybody.AddForce(player.transform.forward * knockback);
             }
         }
     }
