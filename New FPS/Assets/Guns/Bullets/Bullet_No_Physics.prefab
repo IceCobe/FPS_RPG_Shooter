@@ -261,5 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fbf8200d2a5a14fa59e9cd3d81692c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impact: {fileID: 3557630503760186123, guid: 7cafca60f6b3fb24e94960efe6f52e05, type: 3}
   damage: 10
   knockback: 2500

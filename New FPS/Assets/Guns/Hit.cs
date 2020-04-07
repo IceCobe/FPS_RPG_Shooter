@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hit : MonoBehaviour
 {
+    public GameObject impact;
     public float damage = 10f;
     public float knockback = 1f;
     void Start()
@@ -12,6 +13,8 @@ public class Hit : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        Instantiate(impact);
+
         if (other.gameObject.tag == "Enemy" ) {
             Target enemy = other.GetComponent<Target>();
             Enemy_Chase en = other.GetComponent<Enemy_Chase>();
