@@ -8,8 +8,9 @@ public class Shoot : MonoBehaviour
     public Camera fpsCam;
     public GameObject bullet;
     public GameObject emitter;
-    public Ammo_Count ammo_counter;
     public GameObject meleeobject;
+    public Ammo_Count ammo_counter;
+    public AudioSource gun_shot;
 
     public float speed = 100f;
     public float max_ammo = 8f;
@@ -21,6 +22,7 @@ public class Shoot : MonoBehaviour
     bool isReloading = false;
     bool isShooting = false;
     bool isMelee = false;
+
     void Update()
     {          
         // Logic for when I can shoot
@@ -74,6 +76,7 @@ public class Shoot : MonoBehaviour
     IEnumerator shoot() {
         if (Input.GetMouseButton(0)) {
             animator.Play("shoot");
+            gun_shot.Play();
             isShooting = true;
             
             RaycastHit hit;

@@ -874,6 +874,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1630347139}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &688503419 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9203900764911073631, guid: 88fdca8eccee2944f95d87c58236e2c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3421545895192486118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,6 +2510,11 @@ PrefabInstance:
       propertyPath: ammo_counter
       value: 
       objectReference: {fileID: 426765196}
+    - target: {fileID: 3421545895892305428, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: gun_shot
+      value: 
+      objectReference: {fileID: 688503419}
     - target: {fileID: 3421545896016435074, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: m_Name
