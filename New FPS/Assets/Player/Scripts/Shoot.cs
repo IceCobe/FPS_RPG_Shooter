@@ -11,6 +11,7 @@ public class Shoot : MonoBehaviour
     public GameObject meleeobject;
     public Ammo_Count ammo_counter;
     public AudioSource gun_shot;
+    public AudioSource reload_sound;
 
     public float speed = 100f;
     public float max_ammo = 8f;
@@ -43,8 +44,10 @@ public class Shoot : MonoBehaviour
     IEnumerator reload_now() {
         isReloading = true;
         animator.SetBool("Anim_isReloading", true);
-
-        yield return new WaitForSeconds(reload_time);
+        
+        yield return new WaitForSeconds(reload_time*.33f);
+        reload_sound.Play();
+        yield return new WaitForSeconds(reload_time*.66f);
 
         cur_ammo = max_ammo;
         isReloading = false;
