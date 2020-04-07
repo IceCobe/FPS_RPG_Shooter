@@ -2251,6 +2251,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 245784435527942858, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: footsteps
+      value: 
+      objectReference: {fileID: 245784434291790106}
     - target: {fileID: 245784435527942859, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: healthbar
@@ -2311,8 +2316,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5351777725848553112, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351777725848553112, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351777725848553112, guid: 88fdca8eccee2944f95d87c58236e2c4,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fdca8eccee2944f95d87c58236e2c4, type: 3}
+--- !u!82 &245784434291790106 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5351777725848553112, guid: 88fdca8eccee2944f95d87c58236e2c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 245784434291790105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1009832954165750149
 PrefabInstance:
   m_ObjectHideFlags: 0

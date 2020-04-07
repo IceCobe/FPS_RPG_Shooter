@@ -8,6 +8,7 @@ public class Player_Movement : MonoBehaviour
     public CharacterController controller;
     public Transform groundCheck;
     public LayerMask groundMask;
+    public AudioSource footsteps;
 
     public float speed = 12f;
     public float jumpHeight = 3f;
@@ -16,6 +17,7 @@ public class Player_Movement : MonoBehaviour
     
     Vector3 velocity;
     bool isGrounded;
+    bool isStepping = false;
 
     void Update()
     {
@@ -35,6 +37,11 @@ public class Player_Movement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
 
+        // Footsteps if character is moving
+        if (!isStepping && isGrounded && (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) ) {
+            StartCoroutine(Footsteps());
+        }
+
         // Jump Implementation
         if (Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityMultiplier * -9.81f);
@@ -43,5 +50,14 @@ public class Player_Movement : MonoBehaviour
         // Gravity
         velocity.y += gravityMultiplier * -9.81f * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    IEnumerator Footsteps() {
+        isStepping = true;
+        footsteps.Play();
+
+        yield return new WaitForSeconds(.3f);
+
+        isStepping = false;
     }
 }
