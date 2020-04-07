@@ -24,7 +24,7 @@ public class Shoot : MonoBehaviour
     void Update()
     {          
         // Logic for when I can shoot
-        if (cur_ammo <= max_ammo && isReloading == false && (Input.GetKeyDown(KeyCode.R) || cur_ammo <= 0)) {
+        if (cur_ammo <= max_ammo && isReloading == false && (Input.GetKeyDown(KeyCode.R) || cur_ammo <= 0 && isReloading == false)) {
             StartCoroutine(reload_now());
         } else if (!isReloading && !isMelee && !isShooting) {
             StartCoroutine(shoot());
