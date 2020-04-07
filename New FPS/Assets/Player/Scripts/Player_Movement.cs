@@ -9,6 +9,8 @@ public class Player_Movement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
     public AudioSource footsteps;
+    public AudioSource landing;
+    public AudioSource jump;
 
     public float speed = 12f;
     public float jumpHeight = 3f;
@@ -18,6 +20,7 @@ public class Player_Movement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     bool isStepping = false;
+    bool didJump = false;
 
     void Update()
     {
@@ -27,6 +30,11 @@ public class Player_Movement : MonoBehaviour
         // If we're on the ground stay there
         if(isGrounded && velocity.y < 0) {
             velocity.y = -2f;
+
+            if (didJump) {
+                landing.Play();
+                didJump = false;
+            }
         }
 
         // Variable gathering
@@ -45,6 +53,8 @@ public class Player_Movement : MonoBehaviour
         // Jump Implementation
         if (Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityMultiplier * -9.81f);
+            didJump = true;
+            jump.Play();
         }
 
         // Gravity
