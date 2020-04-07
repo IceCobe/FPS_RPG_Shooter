@@ -12,6 +12,7 @@ public class Shoot : MonoBehaviour
     public Ammo_Count ammo_counter;
     public AudioSource gun_shot;
     public AudioSource reload_sound;
+    public AudioSource melee_sound;
 
     public float speed = 100f;
     public float max_ammo = 8f;
@@ -60,7 +61,11 @@ public class Shoot : MonoBehaviour
             isMelee = true;
             animator.Play("melee");
 
-            yield return new WaitForSeconds(25f/60f);
+            yield return new WaitForSeconds(13f/60f);
+
+            melee_sound.Play();
+
+            yield return new WaitForSeconds(25f/60f-13f/60f);
 
             meleeobject.SetActive(true);
 
