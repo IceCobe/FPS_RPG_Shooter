@@ -13,6 +13,7 @@ public class Shoot : MonoBehaviour
     public AudioSource gun_shot;
     public AudioSource reload_sound;
     public AudioSource melee_sound;
+    public ParticleSystem muzzle_flash;
 
     public float speed = 100f;
     public float max_ammo = 8f;
@@ -83,6 +84,7 @@ public class Shoot : MonoBehaviour
     // Shooting implementation
     IEnumerator shoot() {
         if (Input.GetMouseButton(0)) {
+            muzzle_flash.Play();
             animator.Play("shoot");
             gun_shot.Play();
             isShooting = true;
