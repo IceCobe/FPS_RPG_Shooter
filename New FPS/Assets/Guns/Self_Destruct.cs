@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Seld_Destruct : MonoBehaviour
+public class Self_Destruct : MonoBehaviour
 {
     void Start()
     {

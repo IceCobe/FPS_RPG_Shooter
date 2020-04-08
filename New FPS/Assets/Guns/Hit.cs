@@ -13,7 +13,7 @@ public class Hit : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Instantiate(impact);
+        Instantiate(impact, this.transform.position, Quaternion.identity);
 
         if (other.gameObject.tag == "Enemy" ) {
             Target enemy = other.GetComponent<Target>();
