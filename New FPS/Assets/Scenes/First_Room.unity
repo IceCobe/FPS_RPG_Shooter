@@ -2644,12 +2644,12 @@ PrefabInstance:
     - target: {fileID: 5351777725848553112, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: m_Volume
-      value: 0.209
+      value: 0.189
       objectReference: {fileID: 0}
     - target: {fileID: 5351777725848553112, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
       propertyPath: m_Pitch
-      value: 1
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 5351777725848553112, guid: 88fdca8eccee2944f95d87c58236e2c4,
         type: 3}
