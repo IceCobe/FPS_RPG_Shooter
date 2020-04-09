@@ -3,25 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Health : MonoBehaviour
+public class PlayerManagement : MonoBehaviour
 {   
     public HealthBarScript healthbar;
     public float max_health = 100f;
     public float current_health = 100f;
+
+    public StaminaBarScript staminabar;
+    public float max_stamina = 100f;
+    public float current_stamina = 100f;
     
     void Start()
     {
         // Set the current_health to max_health
         current_health = max_health;
+        current_stamina = max_stamina;
 
         // Tell healthbar to set it's max health
         healthbar.SetMaxHealth(max_health);
+        staminabar.SetMaxStamina(max_stamina);
     }
 
     void Update()
     {
         // Tell healthbar to match the health here
         healthbar.SetHealth(current_health);
+        staminabar.SetStamina(current_stamina);
 
         // If I die then reload the room
         if (current_health <= 0) {

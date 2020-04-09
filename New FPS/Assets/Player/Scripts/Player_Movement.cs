@@ -6,6 +6,7 @@ public class Player_Movement : MonoBehaviour
 {
 
     public CharacterController controller;
+    public PlayerManagement manager;
     public Transform groundCheck;
     public LayerMask groundMask;
     public AudioSource footsteps;
@@ -14,6 +15,8 @@ public class Player_Movement : MonoBehaviour
 
     public float speed = 12f;
     public float sprintMultiplier = 1.5f;
+    public float sprintDepreciationMultiplier = 1f;
+    public float sprintRegenerationMultiplier = 1f;
     public float jumpHeight = 3f;
     public float gravityMultiplier = 2f;
     public float groundDistance = 0.2f;
@@ -53,8 +56,10 @@ public class Player_Movement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         if (isSprinting) {
             controller.Move(move * speed * sprintMultiplier * Time.deltaTime);
+            manager.current_stamina -= 1f * sprintDepreciationMultiplier * Time.deltaTime;
         } else {
             controller.Move(move * speed * Time.deltaTime);
+            manager.current_stamina += 1f * sprintRegenerationMultiplier * Time.deltaTime;
         }
 
         // Footsteps if character is moving
