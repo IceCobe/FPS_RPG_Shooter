@@ -41,7 +41,7 @@ public class Player_Movement : MonoBehaviour
                 didJump = false;
             }
 
-            if (Input.GetKey(KeyCode.LeftShift)) {
+            if (Input.GetKey(KeyCode.LeftShift) && manager.current_stamina > 0) {
                 isSprinting = true;
             } else {
                 isSprinting = false;

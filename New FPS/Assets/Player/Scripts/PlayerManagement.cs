@@ -28,6 +28,9 @@ public class PlayerManagement : MonoBehaviour
     {
         // Tell healthbar to match the health here
         healthbar.SetHealth(current_health);
+        if (current_stamina >= max_stamina) {
+            current_stamina = max_stamina;
+        }
         staminabar.SetStamina(current_stamina);
 
         // If I die then reload the room
