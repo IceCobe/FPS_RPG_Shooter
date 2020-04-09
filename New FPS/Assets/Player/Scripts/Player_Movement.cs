@@ -13,6 +13,7 @@ public class Player_Movement : MonoBehaviour
     public AudioSource jump;
 
     public float speed = 12f;
+    public float sprintMultiplier = 1.5f;
     public float jumpHeight = 3f;
     public float gravityMultiplier = 2f;
     public float groundDistance = 0.2f;
@@ -21,6 +22,7 @@ public class Player_Movement : MonoBehaviour
     bool isGrounded;
     bool isStepping = false;
     bool didJump = false;
+    bool isSprinting = false;
 
     void Update()
     {
@@ -35,6 +37,12 @@ public class Player_Movement : MonoBehaviour
                 landing.Play();
                 didJump = false;
             }
+
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                isSprinting = true;
+            } else {
+                isSprinting = false;
+            }
         }
 
         // Variable gathering
@@ -43,7 +51,11 @@ public class Player_Movement : MonoBehaviour
 
         // Move the character
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        if (isSprinting) {
+            controller.Move(move * speed * sprintMultiplier * Time.deltaTime);
+        } else {
+            controller.Move(move * speed * Time.deltaTime);
+        }
 
         // Footsteps if character is moving
         if (!isStepping && isGrounded && (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) ) {
@@ -66,7 +78,11 @@ public class Player_Movement : MonoBehaviour
         isStepping = true;
         footsteps.Play();
 
-        yield return new WaitForSeconds(.3f);
+        if (isSprinting) {
+            yield return new WaitForSeconds(.3f/sprintMultiplier);
+        } else {
+            yield return new WaitForSeconds(.3f);
+        }
 
         isStepping = false;
     }
